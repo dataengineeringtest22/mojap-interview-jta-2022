@@ -14,20 +14,13 @@ def is_log_line(line):
 
 # [TODO]: step 2
 # The generator log_parser_step_2 should return a dict that contains the keys
-# "timestamp", "log_level", and "message". See the 'expected' variable used in the
-# relevant test below to see what we expected to get as the first item from the
-# generator.
+# "timestamp", "log_level", and "message" (valid log levels are `INFO`, `TRACE`, 
+# and `WARNING`). See the 'expected' variable used in the relevant test below to 
+# see what we expected to get as the first item from the generator (lines 68-70).
 def get_dict(line):
     """Takes a log line and returns a dict with
     `timestamp`, `log_level`, `message` keys
     """
-    pass
-
-
-# [TODO]: step 3
-# Convert the timestamp value from its current format: DD/MM/YY HH:MM:SS to an ISO
-# timestamp format: YYYY-MM-DD HH:MM:SS
-def convert_to_iso(timestamp):
     pass
 
 
@@ -46,14 +39,6 @@ if __name__ == "__main__":
         for line in f:
             if is_log_line(line):
                 yield get_dict(line)
-
-    def log_parser_step_3(log_file):
-        f = open(log_file)
-        for line in f:
-            if is_log_line(line):
-                d = get_dict(line)
-                d["timestamp"] = convert_to_iso(d["timestamp"])
-                yield d
 
     # ---- OUTPUT --- #
     # You can print out each line of the log file line by line
@@ -97,41 +82,6 @@ if __name__ == "__main__":
             print(f"Expected: {expected}")
             print(f"Generator Output: {actual}")
 
-    def test_step_3():
-        expected_line2 = {
-            "timestamp": "2021-11-03 08:51:01",
-            "log_level": "INFO",
-            "message": ":...locate_configFile: Specified configuration file: /u/user10/rsvpd1.conf",
-        }
-        lp = log_parser_step_3("sample.log")
-        _ = next(lp)
-        actual = next(lp)
-
-        if expected_line2 == actual:
-            print("STEP 3 SUCCESS")
-        else:
-            print(
-                "STEP 3 FAILURE: your second item from the generator was not as expected.\n"
-                "Printing both expected and your output:\n"
-            )
-            print(f"Expected: {expected_line2}")
-            print(f"Generator Output: {actual}")
-
-            if expected_line2.get("log_level") == actual.get("log_level"):
-                print("The log_level keys match")
-            else:
-                print("The log_level keys do not match")
-
-            if expected_line2.get("timestamp") == actual.get("timestamp"):
-                print("The timestamp keys match")
-            else:
-                print("The timestamp keys do not match")
-
-            if expected_line2.get("message") == actual.get("message"):
-                print("The message keys match")
-            else:
-                print("The message keys do not match")
-
     try:
         test_step_1()
     except Exception:
@@ -141,8 +91,3 @@ if __name__ == "__main__":
         test_step_2()
     except Exception:
         print("step 2 test unable to run")
-
-    try:
-        test_step_3()
-    except Exception:
-        print("step 3 test unable to run")
