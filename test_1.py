@@ -13,9 +13,10 @@ def is_log_line(line):
 
 
 # [TODO]: step 2
-# The generator should now return a dict that contains the keys "timestamp",
-# "log_level", and "message". See the expected variable used in the test below to see
-# what we expected to get as the first item from the generator.
+# The generator log_parser_step_2 should return a dict that contains the keys
+# "timestamp", "log_level", and "message". See the 'expected' variable used in the
+# relevant test below to see what we expected to get as the first item from the
+# generator.
 def get_dict(line):
     """Takes a log line and returns a dict with
     `timestamp`, `log_level`, `message` keys
