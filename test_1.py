@@ -1,33 +1,31 @@
-# [TODO]. Update the is_log_line function below to skip lines that
-# are not valid log lines. Valid log lines have a timestamp, error type, and message.
-# e.g. lines 1, 3, 7 and 37 are all examples of lines (from sample.log)
-# that would be filtered out. There will be no perfect way to do this just
-# decide what you think is reasonable to get the test to pass.
-# The only thing you are not allowed to do is filter out log lines based on the
+# [TODO]: STEP 1
+# Update the is_log_line function below to skip lines that are not valid log lines.
+# Valid log lines have a timestamp, error type, and message. e.g. lines 1, 3, 7 and 37
+# are all examples of lines (from sample.log) that would be filtered out. There will be
+# no perfect way to do this just decide what you think is reasonable to get the test to
+# pass. The only thing you are not allowed to do is filter out log lines based on the
 # exact row numbers you want to remove.
 def is_log_line(line):
-    """
-    takes a log line and returns True if it is a valid log line and returns nothing
+    """Takes a log line and returns True if it is a valid log line and returns nothing
     if it is not.
     """
     return True
 
 
-# [TODO]. The generator should now return a dict that contains the
-# keys "timestamp", "log_level", and "message".
-# See the expected variable used in the test below to see what we
-# expected to get as the first item from the generator.
+# [TODO]: STEP2
+# The generator should now return a dict that contains the keys "timestamp",
+# "log_level", and "message". See the expected variable used in the test below to see
+# what we expected to get as the first item from the generator.
 def get_dict(line):
-    """
-    Takes a log line and returns a dict with
+    """Takes a log line and returns a dict with
     `timestamp`, `log_level`, `message` keys
     """
     pass
 
 
-# [TODO]. Step 3.
-# Convert the timestamp value from its current format: DD/MM/YY HH:MM:SS
-# to an ISO timestamp format: YYYY-MM-DD HH:MM:SS
+# [TODO]: STEP 3
+# Convert the timestamp value from its current format: DD/MM/YY HH:MM:SS to an ISO
+# timestamp format: YYYY-MM-DD HH:MM:SS
 def convert_to_iso(timestamp):
     pass
 
@@ -84,7 +82,7 @@ if __name__ == "__main__":
         expected = {
             "timestamp": "03/11/21 08:51:01",
             "log_level": "INFO",
-            "message": ":.main: *************** RSVP Agent started ***************"
+            "message": ":.main: *************** RSVP Agent started ***************",
         }
         actual = next(log_parser_step_2("sample.log"))
 
@@ -93,7 +91,8 @@ if __name__ == "__main__":
         else:
             print(
                 "STEP 2 FAILURE: your first item from the generator was not as expected.\n"
-                "Printing both expected and your output:\n")
+                "Printing both expected and your output:\n"
+            )
             print(f"Expected: {expected}")
             print(f"Generator Output: {actual}")
 
@@ -101,7 +100,7 @@ if __name__ == "__main__":
         expected_line2 = {
             "timestamp": "2021-11-03 08:51:01",
             "log_level": "INFO",
-            "message": ":...locate_configFile: Specified configuration file: /u/user10/rsvpd1.conf"
+            "message": ":...locate_configFile: Specified configuration file: /u/user10/rsvpd1.conf",
         }
         lp = log_parser_step_3("sample.log")
         _ = next(lp)
@@ -112,7 +111,8 @@ if __name__ == "__main__":
         else:
             print(
                 "STEP 3 FAILURE: your second item from the generator was not as expected.\n"
-                "Printing both expected and your output:\n")
+                "Printing both expected and your output:\n"
+            )
             print(f"Expected: {expected_line2}")
             print(f"Generator Output: {actual}")
 
@@ -120,7 +120,7 @@ if __name__ == "__main__":
                 print("The log_level keys match")
             else:
                 print("The log_level keys do not match")
-            
+
             if expected_line2.get("timestamp") == actual.get("timestamp"):
                 print("The timestamp keys match")
             else:
@@ -133,15 +133,15 @@ if __name__ == "__main__":
 
     try:
         test_step_1()
-    except Exception as e:
+    except Exception:
         print("step 1 test unable to run")
 
     try:
         test_step_2()
-    except Exception as e:
+    except Exception:
         print("step 2 test unable to run")
 
     try:
         test_step_3()
-    except Exception as e:
+    except Exception:
         print("step 3 test unable to run")
