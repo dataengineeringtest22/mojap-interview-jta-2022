@@ -1,4 +1,4 @@
-# [TODO]: STEP 1
+# [TODO]: step 1
 # Update the is_log_line function below to skip lines that are not valid log lines.
 # Valid log lines have a timestamp, error type, and message. e.g. lines 1, 3, 7 and 37
 # are all examples of lines (from sample.log) that would be filtered out. There will be
@@ -12,7 +12,7 @@ def is_log_line(line):
     return True
 
 
-# [TODO]: STEP2
+# [TODO]: step 2
 # The generator should now return a dict that contains the keys "timestamp",
 # "log_level", and "message". See the expected variable used in the test below to see
 # what we expected to get as the first item from the generator.
@@ -23,7 +23,7 @@ def get_dict(line):
     pass
 
 
-# [TODO]: STEP 3
+# [TODO]: step 3
 # Convert the timestamp value from its current format: DD/MM/YY HH:MM:SS to an ISO
 # timestamp format: YYYY-MM-DD HH:MM:SS
 def convert_to_iso(timestamp):
