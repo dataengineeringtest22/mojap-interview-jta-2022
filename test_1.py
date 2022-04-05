@@ -1,10 +1,10 @@
 # [TODO]: step 1
 # Update the is_log_line function below to skip lines that are not valid log lines.
-# Valid log lines have a timestamp, error type, and message. e.g. lines 1, 3, 7 and 37
-# are all examples of lines (from sample.log) that would be filtered out. There will be
-# no perfect way to do this just decide what you think is reasonable to get the test to
-# pass. The only thing you are not allowed to do is filter out log lines based on the
-# exact row numbers you want to remove.
+# Valid log lines have a timestamp, error type, and message. For example, lines 1, 3,
+# 7 and 37 are all examples of lines (from sample.log) that would be filtered out.
+# There's no perfect way to do this: just decide what you think is reasonable to get
+# the test to pass. The only thing you are not allowed to do is filter out log lines
+# based on the exact row numbers you want to remove.
 def is_log_line(line):
     """Takes a log line and returns True if it is a valid log line and returns nothing
     if it is not.
@@ -13,10 +13,10 @@ def is_log_line(line):
 
 
 # [TODO]: step 2
-# The generator log_parser_step_2 should return a dict that contains the keys
-# "timestamp", "log_level", and "message" (valid log levels are `INFO`, `TRACE`, 
-# and `WARNING`). See the 'expected' variable used in the relevant test below to 
-# see what we expected to get as the first item from the generator (lines 68-70).
+# Update the get_dict function below so it converts a line of the logs into a
+# dictionary with keys for "timestamp", "log_level", and "message". The valid log
+# levels are `INFO`, `TRACE`, and `WARNING`. See lines 67 to 71 for how we expect the
+# results to look.
 def get_dict(line):
     """Takes a log line and returns a dict with
     `timestamp`, `log_level`, `message` keys
@@ -24,7 +24,7 @@ def get_dict(line):
     pass
 
 
-# YOU DON"T NEED TO CHANGE ANYTHING BELOW THIS LINE
+# YOU DON'T NEED TO CHANGE ANYTHING BELOW THIS LINE
 if __name__ == "__main__":
     # these are basic generators that will return
     # 1 line of the log file at a time
